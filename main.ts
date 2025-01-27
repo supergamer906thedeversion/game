@@ -1,10 +1,15 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     mySpritd.setPosition(randint(10, 150), randint(10, 110))
-    speed += 1
+    speed += 20
+    controller.moveSprite(mySprite, 50 + speed, 50 + speed)
+    info.changeScoreBy(1)
+    info.startCountdown(5)
 })
 let mySpritd: Sprite = null
+let mySprite: Sprite = null
 let speed = 0
-let mySprite = sprites.create(img`
+speed = 0
+mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -42,3 +47,4 @@ mySpritd = sprites.create(img`
     `, SpriteKind.Food)
 controller.moveSprite(mySprite, 50 + speed, 50 + speed)
 mySpritd.setPosition(randint(10, 150), randint(10, 110))
+mySprite.setStayInScreen(true)
