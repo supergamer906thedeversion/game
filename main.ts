@@ -4,10 +4,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     controller.moveSprite(mySprite, 50 + speed, 50 + speed)
     info.changeScoreBy(1)
     info.startCountdown(5)
+    music.play(music.createSoundEffect(WaveShape.Sawtooth, 5000, 2147, 77, 191, 590, SoundExpressionEffect.Vibrato, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
 })
 let mySpritd: Sprite = null
 let mySprite: Sprite = null
 let speed = 0
+game.splash("post your high scores on https://discord.gg/meWXmgPMu5")
 speed = 0
 mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
