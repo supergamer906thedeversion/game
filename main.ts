@@ -1,9 +1,9 @@
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     mySpritd.setPosition(randint(10, 150), randint(10, 110))
-    speed = speed + 1
+    speed += 1
 })
-let speed = 0
 let mySpritd: Sprite = null
+let speed = 0
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -11,10 +11,10 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . 7 7 7 7 7 7 . . . . . 
+    . . . . . 7 f 7 7 f 7 . . . . . 
     . . . . . 7 7 7 7 7 7 . . . . . 
-    . . . . . 7 7 7 7 7 7 . . . . . 
-    . . . . . 7 7 7 7 7 7 . . . . . 
-    . . . . . 7 7 7 7 7 7 . . . . . 
+    . . . . . 7 f 7 7 f 7 . . . . . 
+    . . . . . 7 7 f f 7 7 . . . . . 
     . . . . . 7 7 7 7 7 7 . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -22,7 +22,6 @@ let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-controller.moveSprite(mySprite)
 mySpritd = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -41,4 +40,5 @@ mySpritd = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Food)
+controller.moveSprite(mySprite, 50 + speed, 50 + speed)
 mySpritd.setPosition(randint(10, 150), randint(10, 110))
